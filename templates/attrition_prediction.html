@@ -1,0 +1,248 @@
+<html>
+<head>
+    <title>PREDICTING EMPLOYEE ATTRITION</title>
+  <style>
+    h1{
+       text-align: center;
+       color: white;
+       }
+
+    label {
+      padding: 12px 35px 15px 0;
+      display: inline-block;
+      font-size: 24px;
+      width: 450px;
+      text-align: right;
+      color: white;
+
+    }
+
+    input{
+       width: 300px;
+       text-align: right;
+    }
+
+    select {
+        width: 150px;
+        margin: 10px;
+    }
+    select:focus {
+        min-width: 150px;
+        width: auto;
+        text-align: right;
+    }
+
+
+    * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.buttons {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 50px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+body{
+   background-image: url('https://images.pexels.com/photos/5324853/pexels-photo-5324853.jpeg?auto=compress&cs=tinysrgb&w=600');
+   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+  </style>
+</head>
+<body>
+<div>
+  <br><br><br><br>
+    <h1>EMPLOYEE ATTRITION PREDICTION</h1>
+</div>
+<br>
+<br>
+<div>
+  <form action="/prediction" method="POST" autocomplete="on">
+    <label for="Age">Age</label>
+      <input type="text" id="Age" name="Age">
+
+    <br>
+     <label for="Department">Department</label>
+    <select id="Department" name="Department">
+      <option value="0">Sales</option>
+      <option value="1">Research & Development</option>
+      <option value="2">Human Resources</option>
+      <option value="3">Others</option>
+    </select>
+
+    <br>
+    <label for="DistanceFromHome">Distance From Home</label>
+    <input type="text" id="DistanceFromHome" name="DistanceFromHome">
+
+    <br>
+      <label for="EmployeeNumber">Employee Number</label>
+    <input type="text" id="EmployeeNumber" name="EmployeeNumber">
+
+    <br>
+
+      <br>
+    <label for="EnvironmentSatisfaction">Environment Satisfaction</label>
+    <select id="EnvironmentSatisfaction" name="EnvironmentSatisfaction">
+      <option value="1">Low</option>
+      <option value="2">Medium</option>
+      <option value="3">High</option>
+      <option value="4">Very High</option>
+    </select>
+
+    <br>
+
+    <label for="Gender">Gender</label>
+    <select id="Gender" name="Gender">
+      <option value="0">Male</option>
+      <option value="1">Female</option>
+    </select>
+
+
+    <br>
+      <label for="JobInvolvement">Job Involvement</label>
+    <select id="JobInvolvement" name="JobInvolvement">
+      <option value="1">Low</option>
+      <option value="2">Medium</option>
+      <option value="3">High</option>
+      <option value="4">Very High</option>
+    </select>
+
+      <br>
+
+      <label for="JobRole">Job Role</label>
+    <select id="JobRole" name="JobRole">
+      <option value="0">Sales Executive</option>
+      <option value="1">Research Scientist</option>
+      <option value="2">Laboratory Technician</option>
+      <option value="3">Manufacturing Director</option>
+      <option value="4">Healthcare Representative</option>
+      <option value="5">Manager</option>
+      <option value="6">Sales Representative</option>
+      <option value="7">Research Director</option>
+      <option value="8">Human Resource</option>
+      <option value="9">Others</option>
+    </select>
+
+    <br>
+
+      <label for="JobSatisfaction">Job Satisfaction</label>
+    <select id="JobSatisfaction" name="JobSatisfaction">
+      <option value="1">Low</option>
+      <option value="2">Medium</option>
+      <option value="3">High</option>
+      <option value="4">Very High</option>
+    </select>
+
+      <br>
+      <label for="MaritalStatus">MaritalStatus</label>
+    <select id="MaritalStatus" name="MaritalStatus">
+      <option value="0">Single</option>
+      <option value="1">Married</option>
+      <option value="2">Divorced</option>
+    </select>
+
+      <br>
+    <label for="MonthlyIncome">Monthly Income</label>
+    <input type="text" id="MonthlyIncome" name="MonthlyIncome">
+
+    <br>
+    <label for="PercentSalaryHike">Percent Salary Hike</label>
+    <input type="text" id="PercentSalaryHike" name="PercentSalaryHike">
+
+    <br>
+      <label for="PerformanceRating">Performance Rating</label>
+    <select id="PerformanceRating" name="PerformanceRating">
+      <option value="1">Low</option>
+      <option value="2">Good</option>
+      <option value="3">Excellent</option>
+      <option value="4">Outstanding</option>
+    </select>
+
+      <br>
+      <label for="RelationshipSatisfaction">Relationship Satisfaction</label>
+    <select id="RelationshipSatisfaction" name="RelationshipSatisfaction">
+      <option value="1">Low</option>
+      <option value="2">Medium</option>
+      <option value="3">High</option>
+      <option value="4">Very High</option>
+    </select>
+
+     <br>
+
+    <label for="TotalWorkingYears">Total Working Years</label>
+    <input type="text" id="TotalWorkingYears" name="TotalWorkingYears">
+
+      <br>
+      <label for="WorkLifeBalance">Work Life Balance</label>
+    <select id="WorkLifeBalance" name="WorkLifeBalance">
+      <option value="1">Bad</option>
+      <option value="2">Good</option>
+      <option value="3">Better</option>
+      <option value="4">Best</option>
+    </select>
+
+      <br>
+
+    <label for="YearsAtCompany">Years At Company</label>
+    <input type="text" id="YearsAtCompany" name="YearsAtCompany">
+
+      <br>
+      <label for="YearsInCurrentRole">Years In Current Role</label>
+    <input type="text" id="YearsInCurrentRole" name="YearsInCurrentRole">
+
+      <br>
+      <label for="YearsSinceLastPromotion">Years Since Last Promotion</label>
+    <input type="text" id="YearsSinceLastPromotion" name="YearsSinceLastPromotion">
+
+      <br>
+      <label for="YearsWithCurrManager">Years With Current Manager</label>
+    <input type="text" id="YearsWithCurrManager" name="YearsWithCurrManager">
+
+    <br><br><br><br><br>
+    <div class="buttons">
+    <button type="submit" class="btn btn-hover btn-primary btn-block btn-large color-1">PREDICT</button>
+      </div>
+  </form>
+</div>
+<br><br><br><br>
+</body>
+</html>
